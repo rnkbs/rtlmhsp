@@ -465,7 +465,7 @@
         <div class="average-card grade-none" id="averageCard">
             <div class="average-label">Ağırlıklı Ortalama</div>
             <div class="average-value" id="averageValue">0</div>
-            <div class="average-subtitle" id="averageSubtitle">Total weight: 112</div>
+            <div class="average-subtitle" id="averageSubtitle">Toplam ağırlık: 112</div>
         </div>
 
         <!-- Toggles -->
@@ -595,10 +595,10 @@
                 const avg = totalWeight > 0 ? weightedSum / totalWeight : 0;
 
                 // Update display
-                averageValue.textContent = formatScore(Math.round(avg * 10) / 10);
+                averageValue.textContent = avg.toFixed(3);
 
                 // Update subtitle
-                averageSubtitle.textContent = `Total weight: ${totalWeight}`;
+                averageSubtitle.textContent = `Toplam ağırlık: ${totalWeight}`;
 
                 // Update card color class
                 averageCard.classList.remove('grade-high', 'grade-mid', 'grade-low', 'grade-none');
@@ -622,7 +622,7 @@
                 const weights = getCurrentWeights();
                 for (let i = 0; i < 6; i++) {
                     if (weightSpans[i]) {
-                        weightSpans[i].textContent = `(weight: ${weights.exams[i]})`;
+                        weightSpans[i].textContent = `(ağırlık: ${weights.exams[i]})`;
                         // Trigger pulse animation
                         weightSpans[i].classList.remove('changed');
                         void weightSpans[i].offsetWidth;
@@ -632,7 +632,7 @@
                 // Update final weight label
                 const finalWeightSpan = document.getElementById('finalWeightSpan');
                 if (finalWeightSpan) {
-                    finalWeightSpan.textContent = `(weight: ${weights.final})`;
+                    finalWeightSpan.textContent = `(ağırlık: ${weights.final})`;
                     finalWeightSpan.classList.remove('changed');
                     void finalWeightSpan.offsetWidth;
                     finalWeightSpan.classList.add('changed');
@@ -808,15 +808,11 @@
                 const finalNameSpan = document.createElement('span');
                 finalNameSpan.className = 'exam-name';
                 finalNameSpan.textContent = 'Final Exam';
-                const finalBadge = document.createElement('span');
-                finalBadge.className = 'final-badge';
-                finalBadge.textContent = 'Final';
                 const finalWeightSpan = document.createElement('span');
                 finalWeightSpan.className = 'exam-weight';
                 finalWeightSpan.id = 'finalWeightSpan';
                 finalWeightSpan.textContent = `(weight: ${weights.final})`;
                 finalInfo.appendChild(finalNameSpan);
-                finalInfo.appendChild(finalBadge);
                 finalInfo.appendChild(finalWeightSpan);
 
                 const finalBtnMinus = document.createElement('button');
