@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Calculator</title>
+    <title>Ortalama Hesaplama</title>
     <style>
         :root {
             --bg: #f0f4f8;
@@ -463,7 +463,7 @@
     <div class="container">
         <!-- Average Display -->
         <div class="average-card grade-none" id="averageCard">
-            <div class="average-label">Weighted Average</div>
+            <div class="average-label">Ağırlıklı Ortalama</div>
             <div class="average-value" id="averageValue">0</div>
             <div class="average-subtitle" id="averageSubtitle">Total weight: 112</div>
         </div>
@@ -472,15 +472,15 @@
         <div class="toggles-row">
             <div class="toggle-card" id="weightToggleCard" tabindex="0" role="button" aria-pressed="false">
                 <div class="toggle-info">
-                    <span class="toggle-title">Alternative Weights</span>
+                    <span class="toggle-title">Alternatif ağırlık (</span>
                     <span class="toggle-subtitle" id="weightToggleLabel">Using Standard Set</span>
                 </div>
                 <div class="toggle-switch" id="weightToggleSwitch"></div>
             </div>
             <div class="toggle-card active-toggle" id="finalToggleCard" tabindex="0" role="button" aria-pressed="true">
                 <div class="toggle-info">
-                    <span class="toggle-title">Include Final Exam</span>
-                    <span class="toggle-subtitle" id="finalToggleLabel">Final is enabled</span>
+                    <span class="toggle-title">Final sınavını dahil et</span>
+                    <span class="toggle-subtitle" id="finalToggleLabel">Final sınavı dahil</span>
                 </div>
                 <div class="toggle-switch active" id="finalToggleSwitch"></div>
             </div>
@@ -502,19 +502,19 @@
                     name: 'Standard',
                     exams: [11, 9, 9, 8, 11, 8],
                     final: 56,
-                    label: 'Using Standard Set',
+                    label: 'AKTS bazında',
                 },
                 alternative: {
                     name: 'Alternative',
                     exams: [96, 105, 96, 74, 114, 95],
                     final: 580,
-                    label: 'Using Alternative Set',
+                    label: 'Ders saati bazında',
                 },
             };
 
             const examLabels = [
-                'Exam 1', 'Exam 2', 'Exam 3',
-                'Exam 4', 'Exam 5', 'Exam 6',
+                '1. Kurul', '2. Kurul', '3. Kurul',
+                '4. Kurul', '5. Kurul', '6. Kurul',
             ];
 
             // ──────────────────────────────────────
@@ -654,12 +654,12 @@
                 if (finalEnabled) {
                     finalToggleCard.classList.add('active-toggle');
                     finalToggleSwitch.classList.add('active');
-                    finalToggleLabel.textContent = 'Final is enabled';
+                    finalToggleLabel.textContent = 'Final sınavı dahil';
                     finalToggleCard.setAttribute('aria-pressed', 'true');
                 } else {
                     finalToggleCard.classList.remove('active-toggle');
                     finalToggleSwitch.classList.remove('active');
-                    finalToggleLabel.textContent = 'Final is disabled';
+                    finalToggleLabel.textContent = 'Final sınavı dahil değil';
                     finalToggleCard.setAttribute('aria-pressed', 'false');
                 }
                 updateAverage();
