@@ -735,7 +735,7 @@
                     nameSpan.textContent = examLabels[i];
                     const weightSpan = document.createElement('span');
                     weightSpan.className = 'exam-weight';
-                    weightSpan.textContent = `(weight: ${weights.exams[i]})`;
+                    weightSpan.textContent = `(ağırlık: ${weights.exams[i]})`;
                     info.appendChild(nameSpan);
                     info.appendChild(weightSpan);
                     weightSpans.push(weightSpan);
@@ -811,7 +811,7 @@
                 const finalWeightSpan = document.createElement('span');
                 finalWeightSpan.className = 'exam-weight';
                 finalWeightSpan.id = 'finalWeightSpan';
-                finalWeightSpan.textContent = `(weight: ${weights.final})`;
+                finalWeightSpan.textContent = `(ağırlık: ${weights.final})`;
                 finalInfo.appendChild(finalNameSpan);
                 finalInfo.appendChild(finalWeightSpan);
 
@@ -930,7 +930,7 @@
 
                 finalToggleSwitch.classList.add('active');
                 finalToggleCard.classList.add('active-toggle');
-                finalToggleLabel.textContent = 'Final is enabled';
+                finalToggleLabel.textContent = 'Final sınavı dahil';
                 finalToggleCard.setAttribute('aria-pressed', 'true');
             }
 
